@@ -1,11 +1,10 @@
 //示例代码
-//请自行补齐所需参数，uuid，自定义隧道域名，隧道端口，token
+//请自行补齐所需参数-代码24行起，uuid，自定义隧道域名，隧道端口，token
 //补充完毕请自行混淆
 //替代index.js文件中代码
 //执行actions
 //获取docker镜像
 //部署
-
 const express = require("express");
 const app = express();
 const axios = require("axios");
@@ -21,16 +20,19 @@ const AUTO_ACCESS = process.env.AUTO_ACCESS || false; // false关闭自动保活
 const FILE_PATH = process.env.FILE_PATH || './tmp';   // 运行目录,sub节点文件保存目录
 const SUB_PATH = process.env.SUB_PATH || 'sub';       // 订阅路径
 const PORT = process.env.SERVER_PORT || process.env.PORT || 3000;        // http服务订阅端口
+//补全参数
 const UUID = process.env.UUID || '请自定义uuid'; // 使用哪吒v1,在不同的平台运行需修改UUID,否则会覆盖
-const NEZHA_SERVER = process.env.NEZHA_SERVER || '';        // 哪吒v1填写形式: nz.abc.com:8008  哪吒v0填写形式：nz.abc.com
-const NEZHA_PORT = process.env.NEZHA_PORT || '';            // 使用哪吒v1请留空，哪吒v0需填写
-const NEZHA_KEY = process.env.NEZHA_KEY || '';              // 哪吒v1的NZ_CLIENT_SECRET或哪吒v0的agent密钥
+const UUID = process.env.UUID || '请自定义uuid'; // 使用哪吒v1,在不同的平台运行需修改UUID,否则会覆盖
 const ARGO_DOMAIN = process.env.ARGO_DOMAIN || '自定义隧道域名';          // 固定隧道域名,留空即启用临时隧道
 const ARGO_AUTH = process.env.ARGO_AUTH || '复制token';              // 固定隧道密钥json或token,留空即启用临时隧道,json获取地址：https://json.zone.id
 const ARGO_PORT = process.env.ARGO_PORT || 8001;            // 固定隧道端口,默认8001
 const CFIP = process.env.CFIP || 'www.shopify.com';        // 节点优选域名或优选ip  
 const CFPORT = process.env.CFPORT || 443;                   // 节点优选域名或优选ip对应的端口
-const NAME = process.env.NAME || '';                        // 节点名称
+const NAME = process.env.NAME || 'ws-argo';                        // 节点名称
+//哪吒可留空不填
+const NEZHA_SERVER = process.env.NEZHA_SERVER || '';        // 哪吒v1填写形式: nz.abc.com:8008  哪吒v0填写形式：nz.abc.com
+const NEZHA_PORT = process.env.NEZHA_PORT || '';            // 使用哪吒v1请留空，哪吒v0需填写
+const NEZHA_KEY = process.env.NEZHA_KEY || '';              // 哪吒v1的NZ_CLIENT_SECRET或哪吒v0的agent密钥
 
 // 创建运行文件夹
 if (!fs.existsSync(FILE_PATH)) {
