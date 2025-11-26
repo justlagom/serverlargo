@@ -1,10 +1,3 @@
-//示例代码
-//请自行补齐所需参数-代码30行起，uuid，自定义隧道域名，隧道端口，token
-//补充完毕请自行混淆
-//替代index.js文件中代码
-//执行actions
-//获取docker镜像
-//部署
 const express = require("express");
 const app = express();
 const axios = require("axios");
@@ -24,9 +17,7 @@ const FILE_PATH = process.env.FILE_PATH || './tmp';   // 运行目录,sub节�
 const SUB_PATH = process.env.SUB_PATH || 'sub';       // 订阅路径
 const PORT = process.env.SERVER_PORT || process.env.PORT || 3000;        // http服务订阅端口
 
-// =================================================================
-// 请自行补齐所需参数（第 30 行起）
-// =================================================================
+// 请自行补齐所需参数
 const UUID = process.env.UUID || '自定义uuid';         // Xray/VLESS 使用的 UUID
 const ARGO_DOMAIN = process.env.ARGO_DOMAIN || '';          // 固定隧道域名,留空即启用临时隧道
 const ARGO_AUTH = process.env.ARGO_AUTH || '';              // 固定隧道密钥json或token,留空即启用临时隧道,json获取地址：https://json.zone.id
@@ -39,7 +30,6 @@ const NAME = process.env.NAME || '';                        // 节�
 const NEZHA_SERVER = process.env.NEZHA_SERVER || '';        // 哪吒v1填写形式: nz.abc.com:8008  哪吒v0填写形式：nz.abc.com
 const NEZHA_PORT = process.env.NEZHA_PORT || '';            // 使用哪吒v1请留空，哪吒v0需填写
 const NEZHA_KEY = process.env.NEZHA_KEY || '';              // 哪吒v1的NZ_CLIENT_SECRET或哪吒v0的agent密钥
-// =================================================================
 
 // 创建运行文件夹
 if (!fs.existsSync(FILE_PATH)) {
